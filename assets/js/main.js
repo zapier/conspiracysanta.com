@@ -16,27 +16,31 @@ GetStarted = React.createFactory(GetStarted);
 // the form that 
 var MemberForm = React.createClass({
   render: function() {
-    return React.DOM.form({className: 'form-inline', role: 'form'},
+    return React.DOM.form({className: 'form-inline', role: 'form', onSubmit: this.props.memberSave},
       React.DOM.div({className: 'form-group'}, 
-        React.DOM.input({type: 'text', className: 'form-control', name: 'name', placeholder: 'Name', onChange: this.props.memberChange})
+        React.DOM.input({type: 'text', autocomplete: 'off', className: 'form-control', name: 'name', placeholder: 'Name', onChange: this.props.memberChange, value: this.props.member.name})
       ),
       ' ',
       React.DOM.div({className: 'form-group'}, 
-        React.DOM.input({type: 'email', className: 'form-control', name: 'email', placeholder: 'Email', onChange: this.props.memberChange})
+        React.DOM.input({type: 'email', autocomplete: 'off', className: 'form-control', name: 'email', placeholder: 'Email', onChange: this.props.memberChange, value: this.props.member.email})
       ),
       ' ',
-      React.DOM.a({className: 'btn btn-success', role: 'button', onClick: this.props.memberSave}, 'Add!')
+      React.DOM.button({className: 'btn btn-success', type: 'submit'}, 'Add!')
     );
   }
 });
 MemberForm = React.createFactory(MemberForm);
 
-var Member = React.createClass({
+var MemberList = React.createClass({
   render: function() {
-    return React.DOM.p(null, 'Member here: ' + this.props.member.name + ' ' + this.props.member.email);
+    return React.DOM.ul(null,
+      _.map(this.props.members, function(member, i) {
+        return React.DOM.li(null, '' + member.name + ' ' + member.email);
+      })
+    )
   }
 });
-Member = React.createFactory(Member);
+MemberList = React.createFactory(MemberList);
 
 var SendMembers = React.createClass({
   sendEmails: function(event) {
@@ -51,7 +55,7 @@ var SendMembers = React.createClass({
 });
 SendMembers = React.createFactory(SendMembers);
 
-var MemberList = React.createClass({
+var Dashboard = React.createClass({
   getInitialState: function() {
     return {
       sent: false,
@@ -65,7 +69,11 @@ var MemberList = React.createClass({
     this.setState({editingMember: newMember});
   },
   memberSave: function(event) {
+    event.preventDefault();
     var newMember = this.state.editingMember;
+    if (_.isEmpty(newMember.name) || _.isEmpty(newMember.email)) {
+      return;
+    }
     this.setState({
       members: this.state.members.concat([newMember]),
       editingMember: {}
@@ -78,15 +86,13 @@ var MemberList = React.createClass({
     return React.DOM.div(null,
       React.DOM.h3(null, 'Who is part of the conspiracy?'),
       React.DOM.p(null, 'Anyone listed here will get the kick off all the email threads to start the conspiracy. We will not ever email you again for any reason.'),
-      _.map(this.state.members, function(member, i) {
-        return Member({member: member, index: i});
-      }),
-      MemberForm({memberChange: this.memberChange, memberSave: this.memberSave}),
+      MemberList({members: this.state.members}),
+      MemberForm({member: this.state.editingMember, memberChange: this.memberChange, memberSave: this.memberSave}),
       SendMembers({members: this.state.members})
     );
   }
 });
-MemberList = React.createFactory(MemberList);
+Dashboard = React.createFactory(Dashboard);
 
 
 var GlobalApp = React.createClass({
@@ -100,7 +106,7 @@ var GlobalApp = React.createClass({
   },
   render: function() {
     if (this.state.started) {
-      return MemberList();
+      return Dashboard();
     } else {
       return GetStarted({onStart: this.onStart});
     }
