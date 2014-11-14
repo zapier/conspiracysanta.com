@@ -1,0 +1,2 @@
+bottle==0.12.7
+gunicorn==19.1.1
