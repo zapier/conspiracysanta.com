@@ -141,7 +141,7 @@ var Dashboard = React.createClass({
   render: function() {
     return React.DOM.div(null,
       React.DOM.h3(null, 'Who is part of the conspiracy?'),
-      React.DOM.p(null, 'Anyone listed here will get the kick off all the email threads to start the conspiracy. We will not ever email you again for any reason.'),
+      React.DOM.p(null, 'Anyone listed here will get each of the kick off email threads that start the conspiracy. We will never email you again for any reason.'),
       MemberList({members: this.state.members, onMemberDelete: this.onMemberDelete}),
       MemberForm({member: this.state.currentMember, onMemberEdit: this.onMemberEdit, onMemberAdd: this.onMemberAdd}),
       SendMembers({members: this.state.members})
