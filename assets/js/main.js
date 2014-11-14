@@ -94,7 +94,7 @@ var SendMembers = React.createClass({
     if (this.state.sending)
       copy = 'Sending emails...';
     if (this.state.sent)
-      copy = 'Sent!';
+      copy = 'Sent! Check your inboxes.';
     if (this.state.errorMessage)
       copy = 'Try again!';
 
