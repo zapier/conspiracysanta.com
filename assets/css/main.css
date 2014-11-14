@@ -1,5 +1,4 @@
-
-    /* Space out content a bit */
+/* Space out content a bit */
 body {
   padding-top: 20px;
   padding-bottom: 20px;
@@ -7,7 +6,6 @@ body {
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
-.marketing,
 .footer {
   padding-right: 15px;
   padding-left: 15px;
@@ -52,19 +50,14 @@ body {
   font-size: 21px;
 }
 
-/* Supporting marketing content */
-.marketing {
-  margin: 40px 0;
-}
-.marketing p + h4 {
-  margin-top: 28px;
+.form-inline {
+  padding: 0 0 12px 0;
 }
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
   /* Remove the padding we set earlier */
   .header,
-  .marketing,
   .footer {
     padding-right: 0;
     padding-left: 0;
