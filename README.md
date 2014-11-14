@@ -2,7 +2,7 @@
 
 A simple Bottle.py + React.js app that sends emails to start a round of conspiracy santa.
 
-```python
+```bash
 mkvirtualenv conspiracysanta
 workon conspiracysanta
 pip install -r requirements.txt
