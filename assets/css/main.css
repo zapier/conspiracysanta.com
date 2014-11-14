@@ -50,6 +50,10 @@ body {
   font-size: 21px;
 }
 
+#react-app {
+  padding-bottom: 24px;
+}
+
 .form-inline {
   padding: 0 0 12px 0;
 }
