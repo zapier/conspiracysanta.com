@@ -1,14 +1,19 @@
 var SEND_ENDPOINT = '/api/conspiracy/start';
+var R = React.DOM;
 
 var GetStarted = React.createClass({
   render: function() {
     var title = 'A Better Secret Santa for Teams';
-    var copy = 'Let the whole team work together to find the perfect gifts for everyone! It is 100% free and happens entirely over email.';
-    return React.DOM.div({className: 'jumbotron'}, 
-      React.DOM.h1(null, title), 
-      React.DOM.p({className: 'lead'}, copy), 
-      React.DOM.p(null,
-        React.DOM.a({className: 'btn btn-lg btn-success', onClick: this.props.onStart, role: 'button'}, 'Let\'s Do It!')
+    var copy = 'Let the whole team work together to find the perfect gifts for ' + 
+               'everyone! It is 100% free and happens entirely over email.';
+    return R.div({className: 'jumbotron'}, 
+      R.h1(null, title), 
+      R.p({className: 'lead'}, copy), 
+      R.p(null,
+        R.a({
+          className: 'btn btn-lg btn-success',
+          onClick: this.props.onStart,
+          role: 'button'}, 'Let\'s Do It!')
       )
     )
   }
@@ -18,16 +23,30 @@ GetStarted = React.createFactory(GetStarted);
 // the form that 
 var MemberForm = React.createClass({
   render: function() {
-    return React.DOM.form({className: 'form-inline', role: 'form', onSubmit: this.props.onMemberAdd},
-      React.DOM.div({className: 'form-group'}, 
-        React.DOM.input({type: 'text', autocomplete: 'off', className: 'form-control', name: 'name', placeholder: 'Name', onChange: this.props.onMemberEdit, value: this.props.member.name})
+    return R.form({className: 'form-inline', role: 'form', onSubmit: this.props.onMemberAdd},
+      R.div({className: 'form-group'}, 
+        R.input({
+          type: 'text',
+          autocomplete: 'off',
+          className: 'form-control',
+          name: 'name',
+          placeholder: 'Name',
+          onChange: this.props.onMemberEdit,
+          value: this.props.member.name})
       ),
       ' ',
-      React.DOM.div({className: 'form-group'}, 
-        React.DOM.input({type: 'email', autocomplete: 'off', className: 'form-control', name: 'email', placeholder: 'Email', onChange: this.props.onMemberEdit, value: this.props.member.email})
+      R.div({className: 'form-group'}, 
+        R.input({
+          type: 'email',
+          autocomplete: 'off',
+          className: 'form-control',
+          name: 'email',
+          placeholder: 'Email',
+          onChange: this.props.onMemberEdit,
+          value: this.props.member.email})
       ),
       ' ',
-      React.DOM.button({className: 'btn btn-success', type: 'submit'}, 'Add!')
+      R.button({className: 'btn btn-success', type: 'submit'}, 'Add!')
     );
   }
 });
@@ -39,11 +58,14 @@ var MemberList = React.createClass({
   },
   render: function() {
     var _this = this;
-    return React.DOM.ul(null,
+    return R.ul(null,
       _.map(this.props.members, function(member, i) {
-        return React.DOM.li(null,
+        return R.li(null,
           '' + member.name + ' <' + member.email + '> ',
-          React.DOM.a({href: 'Javascript:', onClick: (function(event) { _this.props.onMemberDelete(event, i); }), className: 'text-danger'}, '×')
+          R.a({
+            href: 'Javascript:',
+            onClick: (function(event) { _this.props.onMemberDelete(event, i); }),
+            className: 'text-danger'}, '×')
         );
       })
     )
@@ -98,8 +120,8 @@ var SendMembers = React.createClass({
     if (this.state.errorMessage)
       copy = 'Try again!';
 
-    return React.DOM.p(null,
-      React.DOM.a(linkProps, copy),
+    return R.p(null,
+      R.a(linkProps, copy),
       ' ',
       this.state.errorMessage
     )
@@ -139,9 +161,10 @@ var Dashboard = React.createClass({
     });
   },
   render: function() {
-    return React.DOM.div(null,
-      React.DOM.h3(null, 'Who is part of the conspiracy?'),
-      React.DOM.p(null, 'Anyone listed here will get each of the kick off email threads that start the conspiracy. We will never email you again for any reason.'),
+    return R.div(null,
+      R.h3(null, 'Who is part of the conspiracy?'),
+      R.p(null, 'Anyone listed here will get each of the kick off email threads ' +
+                'that start the conspiracy. We will never email you again for any reason.'),
       MemberList({members: this.state.members, onMemberDelete: this.onMemberDelete}),
       MemberForm({member: this.state.currentMember, onMemberEdit: this.onMemberEdit, onMemberAdd: this.onMemberAdd}),
       SendMembers({members: this.state.members})
