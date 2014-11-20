@@ -23,7 +23,7 @@ var GetStarted = React.createClass({
     )
   }
 });
-GetStarted = React.createFactory(GetStarted);
+var GetStarted = React.createFactory(GetStarted);
 
 // the form that
 var MemberForm = React.createClass({
@@ -55,7 +55,7 @@ var MemberForm = React.createClass({
     );
   }
 });
-MemberForm = React.createFactory(MemberForm);
+var MemberForm = React.createFactory(MemberForm);
 
 var MemberList = React.createClass({
   propTypes: {
@@ -76,7 +76,7 @@ var MemberList = React.createClass({
     )
   }
 });
-MemberList = React.createFactory(MemberList);
+var MemberList = React.createFactory(MemberList);
 
 var SendMembers = React.createClass({
   propTypes: {
@@ -132,7 +132,7 @@ var SendMembers = React.createClass({
     )
   }
 });
-SendMembers = React.createFactory(SendMembers);
+var SendMembers = React.createFactory(SendMembers);
 
 var Dashboard = React.createClass({
   getInitialState: function() {
@@ -177,7 +177,7 @@ var Dashboard = React.createClass({
     );
   }
 });
-Dashboard = React.createFactory(Dashboard);
+var Dashboard = React.createFactory(Dashboard);
 
 
 var GlobalApp = React.createClass({
@@ -197,7 +197,7 @@ var GlobalApp = React.createClass({
     }
   }
 });
-GlobalApp = React.createFactory(GlobalApp);
+var GlobalApp = React.createFactory(GlobalApp);
 
 
 React.render(GlobalApp(), document.getElementById('react-app'));
