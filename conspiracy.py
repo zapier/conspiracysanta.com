@@ -29,6 +29,8 @@ Your mission, should you choose to accept it, is to select the most awesome of g
 
 Good luck!
 -Conspiracy Santa
+
+*Powered by [Conspiracy Santa](http://conspiracysanta.com/) and [Zapier](https://zapier.com/).*
 '''
 
 
