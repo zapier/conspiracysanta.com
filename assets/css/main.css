@@ -10,7 +10,6 @@ body {
 
 a {
   color: #888;
-  /*text-decoration: underline;*/
 }
 
 a:hover {
@@ -69,13 +68,13 @@ form {
 /* Custom page footer */
 .footer {
   border-top: 1px dashed #333;
-  color: #444;
+  color: #666;
   font-size: 12px;
   padding-top: 20px;
 }
 
 .footer a {
-  color: #666;
+  color: #888;
 }
 
 .footer .github-icon {
@@ -91,7 +90,19 @@ form {
   }
 }
 @media (max-width: 650px) {
+  .header h3 {
+    font-size: 20px;
+  }
+  .header h3 .strikethrough {
+    display: none;
+  }
   .santa {
+    display: none;
+  }
+  .jumbotron p.lead {
+    font-size: 18px;
+  }
+  .footer .github-icon {
     display: none;
   }
 }
@@ -114,7 +125,7 @@ form {
 
 .jumbotron h1 {
   color: #888;
-  background: -webkit-linear-gradient(#888, #555);
+  background: -webkit-linear-gradient(#888, #666);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -170,6 +181,12 @@ form {
   margin-right: 5px;
   padding-left: 20px;
   vertical-align: middle;
+}
+
+#react-app h3 {
+  background: -webkit-linear-gradient(#AAA, #888);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 /* Responsive: Portrait tablets and up */
