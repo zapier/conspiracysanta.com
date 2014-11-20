@@ -2,6 +2,7 @@ var SEND_ENDPOINT = '/api/conspiracy/start';
 var R = React.DOM;
 
 var GetStarted = React.createClass({
+  displayName: 'GetStarted',
   render: function() {
     var title = 'A Better Secret Santa for Teams';
     var copyLine1 = 'Work together to find each other the perfect Holiday gifts!';
@@ -27,6 +28,7 @@ var GetStarted = React.createFactory(GetStarted);
 
 // the form that
 var MemberForm = React.createClass({
+  displayName: 'MemberForm',
   render: function() {
     return R.form({className: 'form-inline', role: 'form', onSubmit: this.props.onMemberAdd},
       R.div({className: 'form-group'},
@@ -58,6 +60,7 @@ var MemberForm = React.createClass({
 var MemberForm = React.createFactory(MemberForm);
 
 var MemberList = React.createClass({
+  displayName: 'MemberList',
   propTypes: {
     optionalArrayOf: React.PropTypes.arrayOf(React.PropTypes.object)
   },
@@ -79,6 +82,7 @@ var MemberList = React.createClass({
 var MemberList = React.createFactory(MemberList);
 
 var SendMembers = React.createClass({
+  displayName: 'SendMembers',
   propTypes: {
     optionalArrayOf: React.PropTypes.arrayOf(React.PropTypes.object)
   },
@@ -135,6 +139,7 @@ var SendMembers = React.createClass({
 var SendMembers = React.createFactory(SendMembers);
 
 var Dashboard = React.createClass({
+  displayName: 'Dashboard',
   getInitialState: function() {
     return {
       members: [],
@@ -181,6 +186,7 @@ var Dashboard = React.createFactory(Dashboard);
 
 
 var GlobalApp = React.createClass({
+  displayName: 'GlobalApp',
   getInitialState: function() {
     return {
       started: false
