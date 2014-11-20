@@ -17,8 +17,8 @@ var GetStarted = React.createClass({
         role: 'button'}, 'Play!'),
       R.div({className: 'micro'},
         R.a({
-          onClick: this.props.onStart,
-          role: 'button'}, 'I\'m afraid. Tell me more first.')
+          href: 'https://zapier.com/blog/conspiracy-santa/',
+          role: 'button'}, 'Tell me how it works.')
       )
     )
   }
@@ -63,7 +63,7 @@ var MemberList = React.createClass({
   },
   render: function() {
     var _this = this;
-    return R.ul(null,
+    return R.ul({className: 'members'},
       _.map(this.props.members, function(member, i) {
         return R.li(null,
           '' + member.name + ' <' + member.email + '> ',
