@@ -1,7 +1,26 @@
 /* Space out content a bit */
 body {
-  padding-top: 20px;
-  padding-bottom: 20px;
+  background-color: #111111;
+  color: #666666;
+  font-family: Georgia,Times,Times New Roman,serif;
+  padding: 20px 0;
+}
+
+a {
+  color: #666666;
+  /*text-decoration: underline;*/
+}
+
+a:hover {
+  color: #FFF;
+}
+
+.strikethrough {
+  text-decoration: line-through;
+}
+
+.btn {
+  text-decoration: none;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -9,25 +28,44 @@ body {
 .footer {
   padding-right: 15px;
   padding-left: 15px;
+  text-align: center;
 }
 
 /* Custom page header */
 .header {
-  border-bottom: 1px solid #e5e5e5;
+  border-bottom: 1px solid #333;
 }
 /* Make the masthead heading the same height as the navigation */
 .header h3 {
-  padding-bottom: 19px;
+  color: #444;
+  font-size: 20px;
+  padding-bottom: 20px;
   margin-top: 0;
   margin-bottom: 0;
-  line-height: 40px;
+  line-height: 20px;
+}
+
+.header h3 .unicode-flakes {
+  font-size: 13px;
+  margin: 0 5px;
 }
 
 /* Custom page footer */
 .footer {
-  padding-top: 19px;
-  color: #777;
-  border-top: 1px solid #e5e5e5;
+  border-top: 1px solid #333;
+  color: #444;
+  font-size: 12px;
+  padding-top: 20px;
+}
+
+.footer a {
+  color: #666;
+}
+
+.footer .github-icon {
+  margin-left: 3px;
+  width: 14px;
+  vertical-align: text-top;
 }
 
 /* Customize container */
@@ -42,12 +80,44 @@ body {
 
 /* Main marketing message and sign up button */
 .jumbotron {
+  background-color: transparent;
   text-align: center;
-  border-bottom: 1px solid #e5e5e5;
 }
+
+.jumbotron h1 {
+  color: #666;
+  background: -webkit-linear-gradient(#666, #444);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.jumbotron p {
+  line-height: 1.8;
+  margin: 0;
+}
+
+.jumbotron hr {
+  border-top-color: #333;
+  max-width: 150px;
+  margin: 40px auto;
+}
+
 .jumbotron .btn {
-  padding: 14px 24px;
-  font-size: 21px;
+  border: 1px solid #999;
+  border-radius: 0;
+  margin: 40px 0;
+  padding: 10px 40px;
+  font-size: 30px;
+}
+
+.jumbotron .btn:hover {
+  border: 1px solid #FFF;
+  color: #FFF;
+}
+
+.jumbotron .micro  {
+  color: #222;
+  font-size: 13px;
 }
 
 #react-app {

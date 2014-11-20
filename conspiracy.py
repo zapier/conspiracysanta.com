@@ -14,7 +14,7 @@ MAX_MEMBERS = 100
 
 SUBJECT_TEMPLATE = '{name} - Conspiracy Santa'
 BODY_TEMPLATE = '''
-Your mission, should you choose to accept it, is to select the most awesome of gift(s) for {name}. The details of the mission are simple: 
+Your mission, should you choose to accept it, is to select the most awesome of gift(s) for {name}. The details of the mission are simple:
 
 * Reply-all to share information or cool stories about {name}
 * Synthesize information and begin discussion of *awesome gift ideas*

@@ -17,13 +17,13 @@
   <body>
     <div class="container">
       <div class="header">
-        <h3 class="text-muted">Conspiracy Santa</h3>
+        <h3><span class="unicode-flakes">&#10052; &#10052; &#10052;</span> <span class="strikethrough">Secret</span> Conspiracy Santa <span class="unicode-flakes">&#10052; &#10052; &#10052;</span></h3>
       </div>
 
       <div id="react-app"></div>
 
       <footer class="footer">
-        <p>&copy; <a href="https://zapier.com/">Zapier</a> Inc. 2014 - <a href="https://github.com/zapier/conspiracysanta.com">Code available on GitHub</a></p>
+        <p>&copy; <a href="https://zapier.com/">Zapier</a> Inc. 2014. Code available on <a href="https://github.com/zapier/conspiracysanta.com"><img src="/img/github-icon.png" class="github-icon" /> Github</a>.</p>
       </footer>
 
     </div> <!-- /container -->
@@ -33,5 +33,11 @@
     <script src="/js/underscore.min.js"></script>
     <script src="/js/react-with-addons.min.js"></script>
     <script src="/js/main.js"></script>
+    <script src="/js/snowstorm.min.js"></script>
+    <script>
+      snowStorm.snowColor = '#333';
+      snowStorm.flakesMaxActive = 96;
+      snowStorm.useTwinkleEffect = true;
+    </script>
   </body>
 </html>

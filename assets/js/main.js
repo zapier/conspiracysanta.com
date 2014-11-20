@@ -4,27 +4,32 @@ var R = React.DOM;
 var GetStarted = React.createClass({
   render: function() {
     var title = 'A Better Secret Santa for Teams';
-    var copy = 'Let the whole team work together to find the perfect gifts for ' + 
-               'everyone! It is 100% free and happens entirely over email.';
-    return R.div({className: 'jumbotron'}, 
-      R.h1(null, title), 
-      R.p({className: 'lead'}, copy), 
-      R.p(null,
+    var copyLine1 = 'Work together to find each other the perfect Holiday gifts!';
+    var copyLine2 = 'It\'s free and happens entirely over email.';
+    return R.div({className: 'jumbotron'},
+      R.h1(null, title),
+      R.hr(),
+      R.p({className: 'lead'}, copyLine1),
+      R.p({className: 'lead'}, copyLine2),
+      R.a({
+        className: 'btn btn-lg',
+        onClick: this.props.onStart,
+        role: 'button'}, 'Play!'),
+      R.div({className: 'micro'},
         R.a({
-          className: 'btn btn-lg btn-success',
           onClick: this.props.onStart,
-          role: 'button'}, 'Let\'s Do It!')
+          role: 'button'}, 'I\'m afraid. Tell me more first.')
       )
     )
   }
 });
 GetStarted = React.createFactory(GetStarted);
 
-// the form that 
+// the form that
 var MemberForm = React.createClass({
   render: function() {
     return R.form({className: 'form-inline', role: 'form', onSubmit: this.props.onMemberAdd},
-      R.div({className: 'form-group'}, 
+      R.div({className: 'form-group'},
         R.input({
           type: 'text',
           autocomplete: 'off',
@@ -35,7 +40,7 @@ var MemberForm = React.createClass({
           value: this.props.member.name})
       ),
       ' ',
-      R.div({className: 'form-group'}, 
+      R.div({className: 'form-group'},
         R.input({
           type: 'email',
           autocomplete: 'off',
@@ -46,7 +51,7 @@ var MemberForm = React.createClass({
           value: this.props.member.email})
       ),
       ' ',
-      R.button({className: 'btn btn-success', type: 'submit'}, 'Add!')
+      R.button({className: 'btn btn-success', type: 'submit'}, 'Add')
     );
   }
 });
@@ -112,7 +117,7 @@ var SendMembers = React.createClass({
       linkProps.disabled = 'disabled';
     }
 
-    var copy = 'Start the conspiracy!';
+    var copy = 'Start the Conspiracy';
     if (this.state.sending)
       copy = 'Sending emails...';
     if (this.state.sent)
@@ -162,9 +167,11 @@ var Dashboard = React.createClass({
   },
   render: function() {
     return R.div(null,
-      R.h3(null, 'Who is part of the conspiracy?'),
-      R.p(null, 'Anyone listed here will get each of the kick off email threads ' +
-                'that start the conspiracy. We will never email you again for any reason.'),
+      R.h3(null, 'Add Your Fellow Conspirators'),
+      R.p(null, 'Add a name and email for each of the team members with whom you want to play Conpiracy Santa.'),
+      R.p(null, 'Once you start the conspiracy, we\'ll start an email thread for each conspirator with everyone CC\'d except the gift recipient for that thread.' +
+                'We will never email you again for any reason.'),
+      R.p(null, 'After that it\'s all up to you to pick jolly gifts for each other. We won\'t email you again.'),
       MemberList({members: this.state.members, onMemberDelete: this.onMemberDelete}),
       MemberForm({member: this.state.currentMember, onMemberEdit: this.onMemberEdit, onMemberAdd: this.onMemberAdd}),
       SendMembers({members: this.state.members})
