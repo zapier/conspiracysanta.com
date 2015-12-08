@@ -175,7 +175,7 @@ var Dashboard = React.createClass({
       R.h3(null, 'Add Your Fellow Conspirators'),
       R.p(null, 'Add a name and email for each team member with whom you want to play Conpiracy Santa.'),
       R.p(null, 'Once you start the conspiracy, we\'ll begin an email thread for each team member with everyone CC\'d except the gift recipient for that thread.'),
-      R.p(null, 'After that, it\'s all up to you to pick jolly gifts for each other. We won\'t email you again.'),
+      R.p(null, 'After that, it\'s all up to you to pick jolly gifts for each other! We won\'t email you again.'),
       MemberList({members: this.state.members, onMemberDelete: this.onMemberDelete}),
       MemberForm({member: this.state.currentMember, onMemberEdit: this.onMemberEdit, onMemberAdd: this.onMemberAdd}),
       SendMembers({members: this.state.members})
