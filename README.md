@@ -1,3 +1,5 @@
+*_This project is no longer maintained. If you are interested in taking over the project, email [contact@zapier.com](mailto:contact@zapier.com)_*
+
 ## Conspiracy Santa Email Generator
 
 A simple Bottle.py + React.js app that sends emails to start a round of conspiracy santa.
